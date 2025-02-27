@@ -1,6 +1,6 @@
 FROM ubuntu:latest AS build
 
-RUN apt-get update && apt-get install -y openjdk-17-jdk maven
+RUN apt-get update && apt-get install -y openjdk-21-jdk maven
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY . .
 
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 
 EXPOSE 8080
 
